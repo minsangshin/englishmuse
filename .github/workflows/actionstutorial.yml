@@ -1,0 +1,15 @@
+name: Create New Issues
+on:
+  issues:
+    types: [labeled]
+jobs:
+  create-new-issues:
+    if: github.event.label.name = 'iOS'
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: JasonEtco/create-an-issue@v2.9.1
+    - name: Create Issue
+      env:
+        ISSUE_TITLE: ${{ github.event.issue.title }}
+      run: echo "$ISSUE_TITLE"
