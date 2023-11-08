@@ -18,6 +18,8 @@ jobs:
       env:
         ISSUE_TITLE: ${{ github.event.issue.title }}
         ISSUE_LABEL: ${{ github.event.label.name }}
-      run: 
-        echo "$ISSUE_TITLE"
-        echo "$ISSUE_LABEL"
+      with:
+        update_existing: true
+      #run:
+        #echo "$ISSUE_TITLE"
+        #echo "$ISSUE_LABEL"
