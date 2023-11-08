@@ -9,7 +9,7 @@ jobs:
       contents: read
       issues: write
     # if: github.event.label.name == 'iOS'
-    if: contains(fromJSON('["iOS", "AOS"]'), github.event.label.name)
+    if: contains(fromJSON('["iOS", "AOS", "watchOS", "WEAR OS", "BFF"]'), github.event.label.name)
     steps:
     - uses: actions/checkout@v4
     - uses: JasonEtco/create-an-issue@v2.9.1
