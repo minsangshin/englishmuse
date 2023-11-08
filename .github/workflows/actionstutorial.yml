@@ -14,12 +14,7 @@ jobs:
     - uses: JasonEtco/create-an-issue@v2.9.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-    - name: Create Issue
-      env:
         ISSUE_TITLE: ${{ github.event.issue.title }}
         ISSUE_LABEL: ${{ github.event.label.name }}
       with:
         update_existing: true
-      #run:
-        #echo "$ISSUE_TITLE"
-        #echo "$ISSUE_LABEL"
