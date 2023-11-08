@@ -1,16 +1,16 @@
 name: Create New Issues
-permissions:
-  contents: read
-  issues: write 
 on:
   issues:
     types: [labeled]
 jobs:
   create-new-issues:
-    if: github.event.label.name == 'iOS'
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write 
+    if: github.event.label.name == 'iOS'
     steps:
-    - uses: actions/checkout@v4
+    #- uses: actions/checkout@v4
     - uses: JasonEtco/create-an-issue@v2.9.1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
