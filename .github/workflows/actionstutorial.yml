@@ -9,6 +9,8 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: JasonEtco/create-an-issue@v2.9.1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Issue
       env:
         ISSUE_TITLE: ${{ github.event.issue.title }}
