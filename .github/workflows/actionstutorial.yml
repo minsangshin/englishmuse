@@ -17,4 +17,7 @@ jobs:
     - name: Create Issue
       env:
         ISSUE_TITLE: ${{ github.event.issue.title }}
-      run: echo "$ISSUE_TITLE"
+        ISSUE_LABEL: ${{ github.event.label.name }}
+      run: 
+        echo "$ISSUE_TITLE"
+        echo "$ISSUE_LABEL"
