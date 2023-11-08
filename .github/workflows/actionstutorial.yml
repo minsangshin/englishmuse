@@ -17,4 +17,4 @@ jobs:
         ISSUE_TITLE: ${{ github.event.issue.title }}
         ISSUE_LABEL: ${{ github.event.label.name }}
       with:
-        update_existing: true
+        title: $ISSUE_TITLE
