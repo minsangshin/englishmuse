@@ -1,0 +1,17 @@
+name: create issues without public actions
+on:
+  issues:
+    types: [labeled]
+jobs:
+  create-new-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    if: contains(fromJSON('["iOS", "AOS", "watchOS", "WEAR OS", "BFF"]'), github.event.label.name)
+    steps:
+    - uses: actions/checkout@v3
+    - name: Create Issue
+      run: |
+        echo "Creating new issue..."
+        cat ISSUE_TEMPLATE.md | sed -e "s/{{title}}/$GITHUB_EVENT_TITLE/" | sed -e "s/{{body}}/$GITHUB_EVENT_BODY/" | github-issue create
