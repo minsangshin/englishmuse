@@ -1,0 +1,21 @@
+name: Action Create Issue
+on:
+  issues:
+    types: [labeled]
+jobs:
+  create-new-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+    # if: github.event.label.name == 'iOS'
+    if: contains(fromJSON('["iOS", "AOS", "watchOS", "WEAR OS", "BFF"]'), github.event.label.name)
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions-ecosystem/action-create-issue@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        ISSUE_TITLE: ${{ github.event.issue.title }}
+        ISSUE_LABEL: ${{ github.event.label.name }}
+      with:
+        title: $ISSUE_TITLE ($ISSUE_LABEL)
