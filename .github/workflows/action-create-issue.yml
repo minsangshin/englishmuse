@@ -13,9 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: actions-ecosystem/action-create-issue@v1
-      env:
-        ISSUE_TITLE: ${{ github.event.issue.title }}
-        ISSUE_LABEL: ${{ github.event.label.name }}
       with:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        title: $ISSUE_TITLE ($ISSUE_LABEL)
+        title: ${{ github.event.issue.title }} (${{ github.event.label.name }})
