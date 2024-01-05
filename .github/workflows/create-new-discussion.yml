@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     permissions:
       contents: read
-      discussion: write
+      discussions: write
     steps:
       - uses: abirismyname/create-discussion@v1.1.0
         env:
