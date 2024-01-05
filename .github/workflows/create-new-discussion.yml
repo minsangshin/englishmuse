@@ -1,7 +1,7 @@
 name: Create New Discussion
 on:
   schedule:
-    - cron: '0 9 * * 5'
+    - cron: '* * * * *'
 jobs:
   create-new-discussion:
     runs-on: ubuntu-latest
