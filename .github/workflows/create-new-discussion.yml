@@ -11,10 +11,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }} 
           script: |
             mutation {
-          # input type: CreateDiscussionInput
             createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "The body", title: "The title"}) {
-  
-            # response type: CreateDiscussionPayload
             discussion {
               id
             }
