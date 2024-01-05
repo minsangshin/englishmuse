@@ -12,6 +12,10 @@ jobs:
           script: |
             return github.graphql(`
               mutation {
-                  createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "The body", title: "The title"})
+                  createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "The body", title: "The title"}) {
+                  discussion {
+                    id
+                  }
+                }
               }
             `)
