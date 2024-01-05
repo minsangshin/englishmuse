@@ -9,7 +9,9 @@ jobs:
       contents: read
       discussion: write
     steps:
-    - uses: abirismyname/create-discussion@v1.1.0
+    - name: create new discussion
+      id: create-discussion
+      uses: abirismyname/create-discussion@v1.1.0
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
       with:
