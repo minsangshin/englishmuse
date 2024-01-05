@@ -9,12 +9,12 @@ jobs:
       contents: read
       discussion: write
     steps:
-      uses: abirismyname/create-discussion@v1.1.0
-      env:
-        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
-      with:
-        title: 주간회의 $(date "+%Y/%m/%d")"
-        body: |
-          주간회의 남겨주세요. 
-        repository-id: ${{ secrets.REPO_ID }}
-        category-id: ${{ secrets.CAT_ID }}  
+      - uses: abirismyname/create-discussion@v1.1.0
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+        with:
+          title: 주간회의 $(date "+%Y/%m/%d")"
+          body: |
+            주간회의 남겨주세요. 
+          repository-id: ${{ secrets.REPO_ID }}
+          category-id: ${{ secrets.CAT_ID }}  
