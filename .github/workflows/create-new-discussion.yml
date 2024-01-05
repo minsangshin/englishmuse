@@ -5,9 +5,6 @@ on:
 jobs:
   create-new-discussion:
     runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      discussions: write
     steps:
       - uses: abirismyname/create-discussion@v1.1.0
         env:
