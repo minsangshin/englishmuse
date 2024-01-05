@@ -1,9 +1,9 @@
-name: Create New Disccussion
+name: Create New Discussion
 on:
   schedule:
     - cron: '0 9 * * 5'
 jobs:
-  create-issues:
+  create-new-discussion:
     runs-on: ubuntu-latest
     permissions:
       contents: read
