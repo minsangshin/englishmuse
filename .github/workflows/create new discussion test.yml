@@ -1,0 +1,22 @@
+name: Create New Discussion Test
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+jobs:
+  create-new-discussion:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v5
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
+          script: |
+            return github.graphql(`
+              query getNode($node_id: ID!) { 
+              	node(id: $node_id) {
+                  id
+                  __typename
+              }
+              {
+                "node_id": "******"
+              }
+            `)
