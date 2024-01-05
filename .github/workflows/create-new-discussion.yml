@@ -1,7 +1,7 @@
 name: Create New Discussion
 on:
   schedule:
-    cron: '0 9 * * 5'
+    - cron: '0 9 * * 5'
 jobs:
   create-new-discussion:
     runs-on: ubuntu-latest
@@ -9,8 +9,6 @@ jobs:
       contents: read
       discussion: write
     steps:
-    - name: create new discussion
-      id: create-discussion
       uses: abirismyname/create-discussion@v1.1.0
       env:
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
