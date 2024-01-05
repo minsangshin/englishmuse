@@ -12,7 +12,7 @@ jobs:
           script: |
             return github.graphql(`
               mutation {
-                  createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "The body", title: "The title"}) {
+                  createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "다음 주간회의 시간에 논의 필요한 내용을 남겨주세요. @minsangshin", title: "주간회의"}) {
                   discussion {
                     id
                   }
