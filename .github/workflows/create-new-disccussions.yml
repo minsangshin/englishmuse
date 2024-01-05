@@ -1,0 +1,20 @@
+name: Create Issues
+on:
+  schedule:
+    - cron: '0 9 * * 5'
+jobs:
+  create-issues:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      discussion: write
+    steps:
+    - uses: abirismyname/create-discussion@v1.1.0
+      env:
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      with:
+        title: 주간회의 $(date "+%Y/%m/%d")"
+        body: |
+          주간회의 남겨주세요. 
+        repository-id: ${{ secrets.REPO_ID }}
+        category-id: ${{ secrets.CAT_ID }}  
