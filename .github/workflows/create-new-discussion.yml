@@ -6,16 +6,17 @@ jobs:
   create-new-discussion:
     runs-on: ubuntu-latest
     steps:
-      - uses: abirismyname/create-discussion@v1.1.0
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}      
+      - uses: actions/github-script@v5
         with:
-          title: 주간회의 $(date "+%Y/%m/%d")"
-          body: |
-            주간회의 남겨주세요. 
-          repository-id: ${{ secrets.REPO_ID }}
-          category-id: ${{ secrets.CAT_ID }}  
-      - name: Print discussion url and id
-        run: |
-          echo discussion-id: ${{steps.create-discussion.outputs.discussion-id}} 
-          echo discussion-url: ${{steps.create-discussion.outputs.discussion-url}}             
+          github-token: ${{ secrets.GITHUB_TOKEN }} 
+          script: |
+            mutation {
+          # input type: CreateDiscussionInput
+            createDiscussion(input: {repositoryId: "MDEwOlJlcG9zaXRvcnkxNTc0OTQ5Mjk=", categoryId: "DIC_kwDOCWMukc4CcNbN", body: "The body", title: "The title"}) {
+  
+            # response type: CreateDiscussionPayload
+            discussion {
+              id
+            }
+          }
+        }
