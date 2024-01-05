@@ -1,4 +1,4 @@
-name: Create Issues
+name: Create New Disccussion
 on:
   schedule:
     - cron: '0 9 * * 5'
